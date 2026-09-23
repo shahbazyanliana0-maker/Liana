@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codigo - Learn Programming</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #080c0b;
+      color: white;
+    }
+
+    header {
+      padding: 24px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1b2924;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+      color: #34d399;
+    }
+
+    nav a {
+      color: #cbd5d1;
+      text-decoration: none;
+      margin-left: 25px;
+    }
+
+    nav a:hover {
+      color: #34d399;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .content {
+      max-width: 850px;
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #34d399;
+    }
+
+    p {
+      color: #a7b3ae;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      margin-top: 35px;
+    }
+
+    button {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      background: #34d399;
+      color: #06100c;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #6ee7b7;
+    }
+
+    .code {
+      margin: 45px auto 0;
+      max-width: 600px;
+      padding: 25px;
+      background: #101816;
+      border: 1px solid #26352f;
+      border-radius: 14px;
+      text-align: left;
+      font-family: monospace;
+      color: #9fe8c8;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Codigo</div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Courses</a>
+      <a href="#">Practice</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="content">
+
+      <h1>
+        Learn <span>Programming</span><br>
+        by Building.
+      </h1>
+
+      <p>
+        Learn programming through interactive lessons,
+        practical exercises, quizzes and real projects.
+      </p>
+
+      <div class="buttons">
+        <button onclick="startLearning()">
+          Start Learning
+        </button>
+      </div>
+
+      <div class="code">
+        <div>const future = "programmer";</div>
+        <div>console.log("Welcome to Codigo!");</div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function startLearning() {
+      alert("Welcome to Codigo!");
+    }
+  </script>
+
+</body>
+</html>
