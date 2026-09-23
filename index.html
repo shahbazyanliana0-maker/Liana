@@ -1,153 +1,730 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codigo - Learn Programming</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codigo — Learn to Code</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0f0e;
+  color:#f5f7f6;
+  min-height:100vh
+}
+button{
+  cursor:pointer;
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
+  font-weight:bold
+}
+.nav{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 7%;
+  border-bottom:1px solid #202725;
+  background:#0b0f0e
+}
+.logo{
+  font-size:25px;
+  font-weight:800;
+  color:#52e6a4
+}
+.navlinks{
+  display:flex;
+  gap:25px
+}
+.navlinks button{
+  background:none;
+  color:#b9c4c0;
+  padding:8px
+}
+.navlinks button:hover{color:#52e6a4}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #080c0b;
-      color: white;
-    }
+.container{
+  width:86%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:50px 0
+}
 
-    header {
-      padding: 24px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #1b2924;
-    }
+.hero{
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px
+}
+.hero h1{
+  font-size:64px;
+  line-height:1.05;
+  margin-bottom:20px
+}
+.hero h1 span{color:#52e6a4}
+.hero p{
+  color:#aab5b1;
+  font-size:19px;
+  line-height:1.7;
+  max-width:600px
+}
+.primary{
+  background:#52e6a4;
+  color:#07100c;
+  margin-top:28px
+}
+.primary:hover{opacity:.85}
 
-    .logo {
-      font-size: 26px;
-      font-weight: bold;
-      color: #34d399;
-    }
+.codebox{
+  background:#111816;
+  border:1px solid #26332f;
+  border-radius:16px;
+  padding:25px;
+  width:430px;
+  box-shadow:0 20px 70px #0008
+}
+.codebox pre{
+  color:#bdeed5;
+  line-height:1.8;
+  font-family:monospace
+}
 
-    nav a {
-      color: #cbd5d1;
-      text-decoration: none;
-      margin-left: 25px;
-    }
+.page-title{
+  font-size:42px;
+  margin-bottom:12px
+}
+.subtitle{
+  color:#8f9d98;
+  margin-bottom:35px
+}
 
-    nav a:hover {
-      color: #34d399;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px
+}
+.card{
+  background:#111816;
+  border:1px solid #26332f;
+  border-radius:15px;
+  padding:25px
+}
+.card h3{margin:12px 0}
+.card p{
+  color:#9eaaa6;
+  line-height:1.6
+}
+.tag{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:20px;
+  background:#163b2d;
+  color:#52e6a4;
+  font-size:12px
+}
 
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
+.lesson{
+  max-width:850px;
+  margin:auto
+}
+.lesson h1{font-size:42px;margin-bottom:20px}
+.lesson h2{margin:35px 0 12px}
+.lesson p{
+  color:#b2bdb9;
+  line-height:1.8;
+  margin-bottom:15px
+}
+.lesson pre{
+  background:#080c0b;
+  border:1px solid #26332f;
+  padding:20px;
+  border-radius:12px;
+  overflow:auto;
+  color:#bdeed5;
+  margin:20px 0
+}
 
-    .content {
-      max-width: 850px;
-    }
+.editor{
+  width:100%;
+  min-height:220px;
+  background:#080c0b;
+  color:#d9fff0;
+  border:1px solid #26332f;
+  border-radius:12px;
+  padding:18px;
+  font-family:monospace;
+  font-size:15px
+}
+.output{
+  background:#111816;
+  border:1px solid #26332f;
+  padding:18px;
+  border-radius:12px;
+  margin-top:12px;
+  min-height:50px;
+  white-space:pre-wrap
+}
 
-    h1 {
-      font-size: 64px;
-      line-height: 1.05;
-      margin-bottom: 25px;
-    }
+.quiz-question{
+  background:#111816;
+  padding:25px;
+  border-radius:14px;
+  border:1px solid #26332f;
+  margin-bottom:20px
+}
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:#18211e;
+  color:white;
+  margin-top:10px
+}
+.option:hover{background:#21332c}
 
-    h1 span {
-      color: #34d399;
-    }
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+  margin-bottom:35px
+}
+.stat{
+  background:#111816;
+  border:1px solid #26332f;
+  padding:25px;
+  border-radius:14px
+}
+.stat strong{
+  display:block;
+  font-size:35px;
+  color:#52e6a4;
+  margin-bottom:8px
+}
 
-    p {
-      color: #a7b3ae;
-      font-size: 20px;
-      line-height: 1.7;
-    }
+.hidden{display:none!important}
 
-    .buttons {
-      margin-top: 35px;
-    }
-
-    button {
-      padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
-      background: #34d399;
-      color: #06100c;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #6ee7b7;
-    }
-
-    .code {
-      margin: 45px auto 0;
-      max-width: 600px;
-      padding: 25px;
-      background: #101816;
-      border: 1px solid #26352f;
-      border-radius: 14px;
-      text-align: left;
-      font-family: monospace;
-      color: #9fe8c8;
-    }
-  </style>
+@media(max-width:800px){
+  .hero{flex-direction:column;text-align:center}
+  .hero h1{font-size:45px}
+  .codebox{width:100%}
+  .navlinks{gap:5px}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Codigo</div>
+<nav class="nav">
+  <div class="logo">Codigo</div>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Courses</a>
-      <a href="#">Practice</a>
-    </nav>
-  </header>
+  <div class="navlinks">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('courses')">Courses</button>
+    <button onclick="showPage('playground')">Playground</button>
+    <button onclick="showPage('quiz')">Quiz</button>
+    <button onclick="showPage('dashboard')">Dashboard</button>
+  </div>
+</nav>
 
-  <section class="hero">
-    <div class="content">
 
-      <h1>
-        Learn <span>Programming</span><br>
-        by Building.
-      </h1>
+<!-- HOME -->
+<section id="home" class="page">
+<div class="container hero">
 
-      <p>
-        Learn programming through interactive lessons,
-        practical exercises, quizzes and real projects.
-      </p>
+<div>
+<h1>Learn to <span>code.</span><br>Build your future.</h1>
 
-      <div class="buttons">
-        <button onclick="startLearning()">
-          Start Learning
-        </button>
-      </div>
+<p>
+Learn programming through interactive lessons,
+practice exercises, quizzes and real projects.
+Everything you need to start coding.
+</p>
 
-      <div class="code">
-        <div>const future = "programmer";</div>
-        <div>console.log("Welcome to Codigo!");</div>
-      </div>
+<button class="primary" onclick="showPage('courses')">
+Start learning →
+</button>
+</div>
 
-    </div>
-  </section>
+<div class="codebox">
+<pre>
+<span style="color:#52e6a4">function</span> greet(name) {
+  <span style="color:#52e6a4">return</span>
+    "Hello " + name;
+}
 
-  <script>
-    function startLearning() {
-      alert("Welcome to Codigo!");
-    }
-  </script>
+<span style="color:#52e6a4">console</span>.log(
+  greet("Coder")
+);
+</pre>
+</div>
+
+</div>
+</section>
+
+
+<!-- COURSES -->
+<section id="courses" class="page hidden">
+<div class="container">
+
+<h1 class="page-title">Courses</h1>
+<p class="subtitle">Choose a course and start learning.</p>
+
+<div class="cards">
+
+<div class="card">
+<span class="tag">Beginner</span>
+<h3>JavaScript Fundamentals</h3>
+<p>Learn variables, functions, conditions, loops and more.</p>
+<button class="primary" onclick="openLesson(0)">Start course</button>
+</div>
+
+<div class="card">
+<span class="tag">Beginner</span>
+<h3>Python Fundamentals</h3>
+<p>Learn Python syntax, variables, conditions and functions.</p>
+<button class="primary" onclick="openLesson(0)">Start course</button>
+</div>
+
+<div class="card">
+<span class="tag">Practice</span>
+<h3>Programming Basics</h3>
+<p>Practice your logical thinking and coding skills.</p>
+<button class="primary" onclick="showPage('quiz')">Practice quiz</button>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- LESSON -->
+<section id="lesson" class="page hidden">
+<div class="container lesson">
+
+<div id="lessonContent"></div>
+
+<textarea id="editor" class="editor">console.log("Hello, Codigo!");</textarea>
+
+<button class="primary" onclick="runCode()">▶ Run code</button>
+
+<div id="output" class="output">Output will appear here...</div>
+
+<br>
+
+<button onclick="completeLesson()">✓ Complete lesson</button>
+<button onclick="nextLesson()">Next lesson →</button>
+
+</div>
+</section>
+
+
+<!-- PLAYGROUND -->
+<section id="playground" class="page hidden">
+<div class="container">
+
+<h1 class="page-title">Playground</h1>
+<p class="subtitle">Write JavaScript and run it instantly.</p>
+
+<textarea id="playEditor" class="editor">
+console.log("Hello world!");
+console.log(2 + 3);
+</textarea>
+
+<button class="primary" onclick="runPlayground()">▶ Run</button>
+
+<div id="playOutput" class="output">
+Output will appear here...
+</div>
+
+</div>
+</section>
+
+
+<!-- QUIZ -->
+<section id="quiz" class="page hidden">
+<div class="container">
+
+<h1 class="page-title">Programming Quiz</h1>
+<p class="subtitle">Test what you have learned.</p>
+
+<div class="quiz-question">
+
+<h3>1. Which keyword prints something in JavaScript?</h3>
+
+<button class="option" onclick="answer(this,true)">console.log()</button>
+<button class="option" onclick="answer(this,false)">print()</button>
+<button class="option" onclick="answer(this,false)">echo()</button>
+
+</div>
+
+<div class="quiz-question">
+
+<h3>2. Which symbol starts a JavaScript comment?</h3>
+
+<button class="option" onclick="answer(this,true)">//</button>
+<button class="option" onclick="answer(this,false)">##</button>
+<button class="option" onclick="answer(this,false)">--</button>
+
+</div>
+
+<div class="quiz-question">
+
+<h3>3. Which keyword creates a variable?</h3>
+
+<button class="option" onclick="answer(this,false)">variable</button>
+<button class="option" onclick="answer(this,true)">let</button>
+<button class="option" onclick="answer(this,false)">create</button>
+
+</div>
+
+<h2 id="quizScore">Score: 0</h2>
+
+</div>
+</section>
+
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page hidden">
+<div class="container">
+
+<h1 class="page-title">Dashboard</h1>
+<p class="subtitle">Track your learning progress.</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong id="completedStat">0</strong>
+Lessons completed
+</div>
+
+<div class="stat">
+<strong id="scoreStat">0</strong>
+Quiz score
+</div>
+
+<div class="stat">
+<strong id="streakStat">1</strong>
+Day streak
+</div>
+
+</div>
+
+<h2>Your progress</h2>
+
+<br>
+
+<button class="primary" onclick="showPage('courses')">
+Continue learning →
+</button>
+
+</div>
+</section>
+
+
+<script>
+
+let currentLesson = 0;
+
+const lessons = [
+
+{
+title:"JavaScript Variables",
+text:`
+<p>Variables store information that your program can use later.</p>
+
+<h2>Creating a variable</h2>
+
+<p>
+JavaScript has keywords such as
+<code>let</code>, <code>const</code> and <code>var</code>.
+</p>
+
+<pre>
+let name = "Liana";
+let age = 16;
+
+console.log(name);
+console.log(age);
+</pre>
+
+<p>
+Try changing the code in the editor and run it.
+</p>
+`
+},
+
+{
+title:"JavaScript Functions",
+text:`
+<p>
+A function is a reusable block of code.
+</p>
+
+<pre>
+function greet(name) {
+  return "Hello " + name;
+}
+
+console.log(greet("Coder"));
+</pre>
+
+<p>
+Functions help us organize our programs.
+</p>
+`
+},
+
+{
+title:"JavaScript Conditions",
+text:`
+<p>
+Conditions allow a program to make decisions.
+</p>
+
+<pre>
+let age = 18;
+
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Under 18");
+}
+</pre>
+
+<p>
+The program chooses what to do based on the condition.
+</p>
+`
+},
+
+{
+title:"JavaScript Loops",
+text:`
+<p>
+Loops repeat code multiple times.
+</p>
+
+<pre>
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+</pre>
+
+<p>
+This loop prints numbers from 1 to 5.
+</p>
+`
+}
+
+];
+
+
+function showPage(page){
+
+document.querySelectorAll(".page")
+.forEach(p => p.classList.add("hidden"));
+
+document.getElementById(page)
+.classList.remove("hidden");
+
+window.scrollTo(0,0);
+
+if(page === "dashboard"){
+updateDashboard();
+}
+
+}
+
+
+function openLesson(number){
+
+currentLesson = number;
+
+document.getElementById("lessonContent").innerHTML =
+
+"<h1>" +
+lessons[number].title +
+"</h1>" +
+lessons[number].text;
+
+document.getElementById("editor").value =
+`console.log("Try coding here!");`;
+
+showPage("lesson");
+
+}
+
+
+function nextLesson(){
+
+if(currentLesson < lessons.length - 1){
+
+currentLesson++;
+
+openLesson(currentLesson);
+
+}else{
+
+alert("🎉 You completed all lessons!");
+
+showPage("dashboard");
+
+}
+
+}
+
+
+function completeLesson(){
+
+localStorage.setItem(
+"completed_" + currentLesson,
+"true"
+);
+
+alert("Lesson completed! 🎉");
+
+updateDashboard();
+
+}
+
+
+function runCode(){
+
+const code =
+document.getElementById("editor").value;
+
+const output =
+document.getElementById("output");
+
+let logs = [];
+
+const oldLog = console.log;
+
+console.log = function(...args){
+
+logs.push(args.join(" "));
+
+};
+
+try{
+
+eval(code);
+
+output.textContent =
+logs.join("\n") || "Code executed successfully.";
+
+}catch(error){
+
+output.textContent =
+"Error: " + error.message;
+
+}
+
+console.log = oldLog;
+
+}
+
+
+function runPlayground(){
+
+const code =
+document.getElementById("playEditor").value;
+
+const output =
+document.getElementById("playOutput");
+
+let logs = [];
+
+const oldLog = console.log;
+
+console.log = function(...args){
+
+logs.push(args.join(" "));
+
+};
+
+try{
+
+eval(code);
+
+output.textContent =
+logs.join("\n") || "Code executed successfully.";
+
+}catch(error){
+
+output.textContent =
+"Error: " + error.message;
+
+}
+
+console.log = oldLog;
+
+}
+
+
+let score = 0;
+
+function answer(button, correct){
+
+const parent =
+button.parentElement;
+
+const buttons =
+parent.querySelectorAll(".option");
+
+buttons.forEach(b => {
+b.disabled = true;
+});
+
+if(correct){
+
+score++;
+
+button.textContent += " ✓";
+
+}else{
+
+button.textContent += " ✕";
+
+}
+
+document.getElementById("quizScore")
+.textContent =
+"Score: " + score;
+
+localStorage.setItem("quizScore",score);
+
+}
+
+
+function updateDashboard(){
+
+let completed = 0;
+
+for(let i=0;i<lessons.length;i++){
+
+if(localStorage.getItem("completed_"+i) === "true"){
+completed++;
+}
+
+}
+
+document.getElementById("completedStat")
+.textContent = completed;
+
+document.getElementById("scoreStat")
+.textContent =
+localStorage.getItem("quizScore") || 0;
+
+}
+
+
+showPage("home");
+
+</script>
 
 </body>
 </html>
