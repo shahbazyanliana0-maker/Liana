@@ -1,72 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hy">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codigo</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0b0f0e;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  text-align:center;
-}
-
-.container{
-  max-width:700px;
-  padding:40px;
-}
-
-h1{
-  font-size:60px;
-  color:#6ee7b7;
-  margin-bottom:20px;
-}
-
-p{
-  color:#9ba9a3;
-  font-size:18px;
-  line-height:1.6;
-  margin-bottom:30px;
-}
-
-a{
-  display:inline-block;
-  padding:15px 30px;
-  background:#6ee7b7;
-  color:#07100c;
-  text-decoration:none;
-  border-radius:10px;
-  font-weight:bold;
-}
-
-a:hover{
-  background:#a7f3d0;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liana Courses</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; text-align: center; }
+        h1 { color: #333; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 800px; margin: 20px auto; }
+        .btn { display: block; padding: 15px; background: #007bff; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .btn:hover { background: #0056b3; }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <h1>Իմ Դասընթացները</h1>
 
-  <h1>Codigo</h1>
-
-  <p>
-    Learn programming. Practice coding. Build real projects.
-  </p>
-
-  <a href="courses.html">
-    Explore Courses →
-  </a>
-
-</div>
+    <div class="grid">
+        <a href="python.html" class="btn">Python 1</a>
+        <a href="python2.html" class="btn">Python 2</a>
+        <a href="web.html" class="btn">Web 1</a>
+        <a href="web2.html" class="btn">Web 2</a>
+        <a href="javascript.html" class="btn">JavaScript 1</a>
+        <a href="javascript2.html" class="btn">JavaScript 2</a>
+        <a href="cpp.html" class="btn">C++ 1</a>
+        <a href="cpp2.html" class="btn">C++ 2</a>
+        <a href="ai.html" class="btn">AI 1</a>
+        <a href="ai2.html" class="btn">AI 2</a>
+        <a href="projects.html" class="btn">Projects 1</a>
+        <a href="projects2.html" class="btn">Projects 2</a>
+    </div>
 
 </body>
 </html>
