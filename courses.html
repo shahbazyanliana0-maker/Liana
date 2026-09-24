@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Codigo — Courses</title>
 
 <style>
@@ -16,158 +15,118 @@
 body{
   font-family:Arial,sans-serif;
   background:#0b0f0e;
-  color:#f4f7f5;
+  color:white;
   min-height:100vh;
 }
 
 nav{
-  height:72px;
-  padding:0 7%;
+  height:75px;
+  border-bottom:1px solid #26332e;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid #1d2824;
+  padding:0 7%;
+  gap:30px;
 }
 
 .logo{
   color:#6ee7b7;
-  text-decoration:none;
-  font-size:26px;
+  font-size:25px;
   font-weight:bold;
-}
-
-.nav-links{
-  display:flex;
-  gap:30px;
-}
-
-.nav-links a{
-  color:#aebbb5;
+  margin-right:auto;
   text-decoration:none;
 }
 
-.nav-links a:hover{
+nav a{
+  color:#a7b3ae;
+  text-decoration:none;
+  margin:0 10px;
+}
+
+nav a:hover{
   color:#6ee7b7;
 }
 
-.hero{
-  width:86%;
-  max-width:1200px;
+main{
+  max-width:1100px;
   margin:auto;
-  padding:80px 0 50px;
-}
-
-.label{
-  color:#6ee7b7;
-  font-size:13px;
-  font-weight:bold;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:15px;
+  padding:70px 30px;
 }
 
 h1{
-  font-size:52px;
-  margin-bottom:18px;
+  font-size:60px;
+  margin-bottom:15px;
 }
 
-.hero p{
-  color:#9ba9a3;
+h1 span{
+  color:#6ee7b7;
+}
+
+.subtitle{
+  color:#94a39c;
   font-size:18px;
-  line-height:1.7;
-  max-width:700px;
+  margin-bottom:45px;
 }
 
 .courses{
-  width:86%;
-  max-width:1200px;
-  margin:auto;
-  padding-bottom:80px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:25px;
+  gap:20px;
 }
 
-.course{
+.card{
   background:#111816;
-  border:1px solid #21302a;
-  border-radius:18px;
-  padding:30px;
-  transition:0.2s;
+  border:1px solid #293832;
+  border-radius:16px;
+  padding:28px;
+  text-decoration:none;
+  color:white;
+  transition:.2s;
 }
 
-.course:hover{
+.card:hover{
   transform:translateY(-5px);
   border-color:#6ee7b7;
 }
 
-.course-number{
-  color:#6ee7b7;
-  font-size:13px;
-  font-weight:bold;
+.icon{
+  font-size:35px;
   margin-bottom:20px;
 }
 
-.course h2{
-  font-size:25px;
-  margin-bottom:15px;
+.card h2{
+  margin-bottom:12px;
 }
 
-.course p{
-  color:#9ba9a3;
+.card p{
+  color:#8f9d97;
   line-height:1.6;
-  margin-bottom:25px;
 }
 
-.course-btn{
+.button{
   display:inline-block;
-  padding:12px 20px;
+  margin-top:25px;
   background:#6ee7b7;
   color:#07100c;
-  text-decoration:none;
+  padding:11px 18px;
   border-radius:9px;
   font-weight:bold;
 }
 
-.course-btn:hover{
-  background:#a7f3d0;
-}
-
-footer{
-  text-align:center;
-  border-top:1px solid #1d2824;
-  padding:30px;
-  color:#718079;
-}
-
-@media(max-width:900px){
+@media(max-width:800px){
   .courses{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
   }
-}
-
-@media(max-width:650px){
 
   nav{
-    padding:0 5%;
+    padding:0 20px;
   }
 
-  .nav-links{
-    gap:15px;
-    font-size:14px;
+  nav a{
+    display:none;
   }
 
   h1{
-    font-size:38px;
-  }
-
-  .hero,
-  .courses{
-    width:90%;
-  }
-
-  .courses{
-    grid-template-columns:1fr;
+    font-size:45px;
   }
 }
 </style>
@@ -176,196 +135,57 @@ footer{
 <body>
 
 <nav>
+<a class="logo" href="index.html">Codigo.</a>
 
-  <a href="index.html" class="logo">
-    Codigo
-  </a>
-
-  <div class="nav-links">
-
-    <a href="index.html">
-      Home
-    </a>
-
-    <a href="courses.html">
-      Courses
-    </a>
-
-    <a href="playground.html">
-      Playground
-    </a>
-
-    <a href="quiz.html">
-      Quiz
-    </a>
-
-  </div>
-
+<div>
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="playground.html">Playground</a>
+<a href="quiz.html">Quiz</a>
+<a href="dashboard.html">Dashboard</a>
+</div>
 </nav>
 
+<main>
 
-<section class="hero">
+<h1>Choose your <span>path.</span></h1>
 
-  <div class="label">
-    Learn to Code
-  </div>
+<p class="subtitle">
+Learn programming through practical courses and real projects.
+</p>
 
-  <h1>
-    Explore Courses
-  </h1>
+<div class="courses">
 
-  <p>
-    Learn programming step by step, practice your skills,
-    and build real projects with Codigo.
-  </p>
+<a class="card" href="course-python.html">
+<div class="icon">🐍</div>
+<h2>Python Foundations</h2>
+<p>
+Learn variables, conditions, loops, lists, functions and build your first projects.
+</p>
+<div class="button">Open course →</div>
+</a>
 
-</section>
+<a class="card" href="course-javascript.html">
+<div class="icon">JS</div>
+<h2>JavaScript Basics</h2>
+<p>
+Learn the fundamentals of JavaScript and create interactive web experiences.
+</p>
+<div class="button">Open course →</div>
+</a>
 
+<a class="card" href="course-web.html">
+<div class="icon">&lt;/&gt;</div>
+<h2>Web Development</h2>
+<p>
+Learn HTML, CSS and JavaScript and build modern responsive websites.
+</p>
+<div class="button">Open course →</div>
+</a>
 
-<section class="courses">
+</div>
 
-
-  <div class="course">
-
-    <div class="course-number">
-      COURSE 01
-    </div>
-
-    <h2>
-      Python Fundamentals
-    </h2>
-
-    <p>
-      Learn Python from the beginning. Understand the basics,
-      write your first programs and build a strong foundation.
-    </p>
-
-    <a
-      href="https://shahbazyanliana0-maker.github.io/Liana/python.html"
-      class="course-btn"
-    >
-      Start Course →
-    </a>
-
-  </div>
-
-
-  <div class="course">
-
-    <div class="course-number">
-      COURSE 02
-    </div>
-
-    <h2>
-      Web Development
-    </h2>
-
-    <p>
-      Learn HTML, CSS and JavaScript and start building
-      modern websites.
-    </p>
-
-    <a href="web.html" class="course-btn">
-      Start Course →
-    </a>
-
-  </div>
-
-
-  <div class="course">
-
-    <div class="course-number">
-      COURSE 03
-    </div>
-
-    <h2>
-      C++ Programming
-    </h2>
-
-    <p>
-      Learn C++ fundamentals, algorithms, data structures
-      and problem solving.
-    </p>
-
-    <a href="cpp.html" class="course-btn">
-      Start Course →
-    </a>
-
-  </div>
-
-
-  <div class="course">
-
-    <div class="course-number">
-      COURSE 04
-    </div>
-
-    <h2>
-      JavaScript
-    </h2>
-
-    <p>
-      Learn JavaScript and create interactive and dynamic
-      web applications.
-    </p>
-
-    <a href="javascript.html" class="course-btn">
-      Start Course →
-    </a>
-
-  </div>
-
-
-  <div class="course">
-
-    <div class="course-number">
-      COURSE 05
-    </div>
-
-    <h2>
-      AI & Machine Learning
-    </h2>
-
-    <p>
-      Explore artificial intelligence, machine learning,
-      data and intelligent applications.
-    </p>
-
-    <a href="ai.html" class="course-btn">
-      Start Course →
-    </a>
-
-  </div>
-
-
-  <div class="course">
-
-    <div class="course-number">
-      COURSE 06
-    </div>
-
-    <h2>
-      Programming Projects
-    </h2>
-
-    <p>
-      Practice your programming skills by building
-      real-world projects.
-    </p>
-
-    <a href="projects.html" class="course-btn">
-      Start Course →
-    </a>
-
-  </div>
-
-
-</section>
-
-
-<footer>
-  © 2026 Codigo — Learn to Code
-</footer>
+</main>
 
 </body>
 </html>
