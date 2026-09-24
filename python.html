@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codigo — Python Fundamentals</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0f0e;
+  color:#f4f7f5;
+  min-height:100vh;
+}
+
+nav{
+  height:72px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #1d2824;
+}
+
+.logo{
+  color:#6ee7b7;
+  text-decoration:none;
+  font-size:26px;
+  font-weight:bold;
+}
+
+.back{
+  color:#aebbb5;
+  text-decoration:none;
+}
+
+.back:hover{
+  color:#6ee7b7;
+}
+
+main{
+  width:86%;
+  max-width:900px;
+  margin:auto;
+  padding:70px 0;
+}
+
+.label{
+  color:#6ee7b7;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+h1{
+  font-size:48px;
+  margin:15px 0;
+}
+
+.intro{
+  color:#9ba9a3;
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:45px;
+}
+
+.lesson{
+  background:#111816;
+  border:1px solid #21302a;
+  border-radius:18px;
+  padding:35px;
+  margin-bottom:25px;
+}
+
+.lesson h2{
+  margin-bottom:15px;
+  font-size:25px;
+}
+
+.lesson p{
+  color:#aebbb5;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+pre{
+  background:#080c0b;
+  border:1px solid #1d2824;
+  border-radius:12px;
+  padding:20px;
+  overflow-x:auto;
+  color:#b7f7d8;
+  line-height:1.6;
+}
+
+.navigation{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-top:45px;
+}
+
+.navigation a{
+  text-decoration:none;
+  padding:14px 24px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.prev{
+  border:1px solid #2a3933;
+  color:#b5c1bc;
+}
+
+.prev:hover{
+  border-color:#6ee7b7;
+  color:#6ee7b7;
+}
+
+.next{
+  background:#6ee7b7;
+  color:#07100c;
+}
+
+.next:hover{
+  background:#a7f3d0;
+}
+
+footer{
+  text-align:center;
+  border-top:1px solid #1d2824;
+  padding:30px;
+  color:#718079;
+}
+
+@media(max-width:650px){
+
+  h1{
+    font-size:36px;
+  }
+
+  main{
+    width:90%;
+  }
+
+  .navigation{
+    flex-direction:column;
+  }
+
+  .navigation a{
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+  <a href="index.html" class="logo">
+    Codigo
+  </a>
+
+  <a href="courses.html" class="back">
+    ← All Courses
+  </a>
+
+</nav>
+
+<main>
+
+  <div class="label">
+    Python Fundamentals • Lesson 1
+  </div>
+
+  <h1>
+    Introduction to Python
+  </h1>
+
+  <p class="intro">
+    Welcome to Python Fundamentals. In this lesson,
+    you will learn what Python is and write your first program.
+  </p>
+
+
+  <section class="lesson">
+
+    <h2>
+      What is Python?
+    </h2>
+
+    <p>
+      Python is a popular programming language used to build
+      websites, applications, automation tools, data science
+      projects and artificial intelligence systems.
+    </p>
+
+    <p>
+      Python is beginner-friendly because its syntax is simple
+      and easy to read.
+    </p>
+
+  </section>
+
+
+  <section class="lesson">
+
+    <h2>
+      Your First Python Program
+    </h2>
+
+    <p>
+      The <strong>print()</strong> function displays information
+      on the screen.
+    </p>
+
+    <pre><code>print("Hello, world!")</code></pre>
+
+  </section>
+
+
+  <section class="lesson">
+
+    <h2>
+      Try It Yourself
+    </h2>
+
+    <p>
+      Change the text inside the quotation marks and create
+      your own message.
+    </p>
+
+    <pre><code>print("I am learning Python!")</code></pre>
+
+  </section>
+
+
+  <div class="navigation">
+
+    <a href="courses.html" class="prev">
+      ← Previous
+    </a>
+
+    <a href="python2.html" class="next">
+      Next →
+    </a>
+
+  </div>
+
+</main>
+
+
+<footer>
+  © 2026 Codigo — Learn to Code
+</footer>
+
+</body>
+</html>
