@@ -1,191 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codigo — Courses</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#0b0f0e;
-  color:white;
-  min-height:100vh;
-}
-
-nav{
-  height:75px;
-  border-bottom:1px solid #26332e;
-  display:flex;
-  align-items:center;
-  padding:0 7%;
-  gap:30px;
-}
-
-.logo{
-  color:#6ee7b7;
-  font-size:25px;
-  font-weight:bold;
-  margin-right:auto;
-  text-decoration:none;
-}
-
-nav a{
-  color:#a7b3ae;
-  text-decoration:none;
-  margin:0 10px;
-}
-
-nav a:hover{
-  color:#6ee7b7;
-}
-
-main{
-  max-width:1100px;
-  margin:auto;
-  padding:70px 30px;
-}
-
-h1{
-  font-size:60px;
-  margin-bottom:15px;
-}
-
-h1 span{
-  color:#6ee7b7;
-}
-
-.subtitle{
-  color:#94a39c;
-  font-size:18px;
-  margin-bottom:45px;
-}
-
-.courses{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.card{
-  background:#111816;
-  border:1px solid #293832;
-  border-radius:16px;
-  padding:28px;
-  text-decoration:none;
-  color:white;
-  transition:.2s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-  border-color:#6ee7b7;
-}
-
-.icon{
-  font-size:35px;
-  margin-bottom:20px;
-}
-
-.card h2{
-  margin-bottom:12px;
-}
-
-.card p{
-  color:#8f9d97;
-  line-height:1.6;
-}
-
-.button{
-  display:inline-block;
-  margin-top:25px;
-  background:#6ee7b7;
-  color:#07100c;
-  padding:11px 18px;
-  border-radius:9px;
-  font-weight:bold;
-}
-
-@media(max-width:800px){
-  .courses{
-    grid-template-columns:1fr;
-  }
-
-  nav{
-    padding:0 20px;
-  }
-
-  nav a{
-    display:none;
-  }
-
-  h1{
-    font-size:45px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codigo — Courses</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav>
-<a class="logo" href="index.html">Codigo.</a>
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo">Codi<span>go</span></a>
 
-<div>
-<a href="index.html">Home</a>
-<a href="courses.html">Courses</a>
-<a href="playground.html">Playground</a>
-<a href="quiz.html">Quiz</a>
-<a href="dashboard.html">Dashboard</a>
-</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+    </div>
+  </div>
 </nav>
 
-<main>
+<section class="course-header">
+  <div class="container">
+    <div class="badge">Learn at your own pace</div>
+    <h1>Explore Courses</h1>
+    <p>
+      Choose a programming path and start building real skills
+      through structured lessons, practice and projects.
+    </p>
+  </div>
+</section>
 
-<h1>Choose your <span>path.</span></h1>
+<section class="section">
+  <div class="container">
 
-<p class="subtitle">
-Learn programming through practical courses and real projects.
-</p>
+    <div class="course-grid">
 
-<div class="courses">
+      <div class="course-card">
+        <div class="course-icon">🐍</div>
+        <h3>Python</h3>
+        <p>From programming basics to OOP, files and projects.</p>
+        <a href="python.html" class="course-link">Start Course →</a>
+      </div>
 
-<a class="card" href="course-python.html">
-<div class="icon">🐍</div>
-<h2>Python Foundations</h2>
-<p>
-Learn variables, conditions, loops, lists, functions and build your first projects.
-</p>
-<div class="button">Open course →</div>
-</a>
+      <div class="course-card">
+        <div class="course-icon">💻</div>
+        <h3>C++</h3>
+        <p>Programming fundamentals, algorithms and problem solving.</p>
+        <a href="cpp.html" class="course-link">Start Course →</a>
+      </div>
 
-<a class="card" href="course-javascript.html">
-<div class="icon">JS</div>
-<h2>JavaScript Basics</h2>
-<p>
-Learn the fundamentals of JavaScript and create interactive web experiences.
-</p>
-<div class="button">Open course →</div>
-</a>
+      <div class="course-card">
+        <div class="course-icon">☕</div>
+        <h3>Java</h3>
+        <p>Object-oriented programming and Java application development.</p>
+        <a href="java.html" class="course-link">Start Course →</a>
+      </div>
 
-<a class="card" href="course-web.html">
-<div class="icon">&lt;/&gt;</div>
-<h2>Web Development</h2>
-<p>
-Learn HTML, CSS and JavaScript and build modern responsive websites.
-</p>
-<div class="button">Open course →</div>
-</a>
+      <div class="course-card">
+        <div class="course-icon">🌐</div>
+        <h3>Web Development</h3>
+        <p>HTML, CSS, JavaScript and modern website development.</p>
+        <a href="web.html" class="course-link">Start Course →</a>
+      </div>
 
-</div>
+      <div class="course-card">
+        <div class="course-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Learn JavaScript and make interactive web applications.</p>
+        <a href="javascript.html" class="course-link">Start Course →</a>
+      </div>
 
-</main>
+      <div class="course-card">
+        <div class="course-icon">🤖</div>
+        <h3>AI & Machine Learning</h3>
+        <p>Learn AI concepts and build practical machine learning projects.</p>
+        <a href="ai.html" class="course-link">Start Course →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">📊</div>
+        <h3>Data Science</h3>
+        <p>Python, data analysis, visualization and machine learning.</p>
+        <a href="datascience.html" class="course-link">Start Course →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🗄️</div>
+        <h3>SQL & Databases</h3>
+        <p>Learn databases, queries, relationships and SQL.</p>
+        <a href="sql.html" class="course-link">Start Course →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🔧</div>
+        <h3>Git & GitHub</h3>
+        <p>Learn version control and professional GitHub workflows.</p>
+        <a href="github.html" class="course-link">Start Course →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="course-icon">🧠</div>
+        <h3>Algorithms</h3>
+        <p>Searching, sorting, data structures and problem solving.</p>
+        <a href="algorithms.html" class="course-link">Start Course →</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Codigo. Learn. Build. Grow.</p>
+  </div>
+</footer>
 
 </body>
 </html>
