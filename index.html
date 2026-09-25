@@ -1,35 +1,332 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liana Courses</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; text-align: center; }
-        h1 { color: #333; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 800px; margin: 20px auto; }
-        .btn { display: block; padding: 15px; background: #007bff; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; }
-        .btn:hover { background: #0056b3; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codigo — Learn to Code</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Իմ Դասընթացները</h1>
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="logo">Codi<span>go</span></a>
 
-    <div class="grid">
-        <a href="python.html" class="btn">Python 1</a>
-        <a href="python2.html" class="btn">Python 2</a>
-        <a href="web.html" class="btn">Web 1</a>
-        <a href="web2.html" class="btn">Web 2</a>
-        <a href="javascript.html" class="btn">JavaScript 1</a>
-        <a href="javascript2.html" class="btn">JavaScript 2</a>
-        <a href="cpp.html" class="btn">C++ 1</a>
-        <a href="cpp2.html" class="btn">C++ 2</a>
-        <a href="ai.html" class="btn">AI 1</a>
-        <a href="ai2.html" class="btn">AI 2</a>
-        <a href="projects.html" class="btn">Projects 1</a>
-        <a href="projects2.html" class="btn">Projects 2</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="login.html" class="nav-button">Start Learning</a>
+      </div>
     </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="badge">Learn. Build. Become a Developer.</div>
+
+          <h1>
+            Learn to code.<br>
+            <span>Build your future.</span>
+          </h1>
+
+          <p>
+            Master programming through structured courses,
+            practical exercises, quizzes and real projects.
+            Learn at your own pace and build skills that matter.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="courses.html" class="btn btn-primary">
+              Explore Courses
+            </a>
+
+            <a href="#features" class="btn btn-secondary">
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <div class="code-window">
+
+          <div class="window-top">
+            ● ● ●
+          </div>
+
+          <div class="code">
+            <div><span class="blue">def</span> <span class="green">build_future</span>():</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">skills</span> = [</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="orange">"Python"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="orange">"Web Development"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="orange">"AI"</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="orange">"Data Science"</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;]</div>
+            <br>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="blue">return</span> <span class="orange">"Keep learning."</span></div>
+            <br>
+            <div><span class="green">build_future</span>()</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section" id="courses">
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Popular Courses</h2>
+          <p>Choose a path and start learning today.</p>
+        </div>
+
+        <div class="course-grid">
+
+          <div class="course-card">
+            <div class="course-icon">🐍</div>
+            <h3>Python</h3>
+            <p>
+              Learn Python from the basics to object-oriented
+              programming and real projects.
+            </p>
+            <a href="python.html" class="course-link">
+              View Course →
+            </a>
+          </div>
+
+          <div class="course-card">
+            <div class="course-icon">💻</div>
+            <h3>C++</h3>
+            <p>
+              Build strong programming fundamentals with
+              C++ and problem solving.
+            </p>
+            <a href="cpp.html" class="course-link">
+              View Course →
+            </a>
+          </div>
+
+          <div class="course-card">
+            <div class="course-icon">☕</div>
+            <h3>Java</h3>
+            <p>
+              Learn Java, object-oriented programming and
+              application development.
+            </p>
+            <a href="java.html" class="course-link">
+              View Course →
+            </a>
+          </div>
+
+          <div class="course-card">
+            <div class="course-icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Learn HTML, CSS and JavaScript and create
+              modern websites.
+            </p>
+            <a href="web.html" class="course-link">
+              View Course →
+            </a>
+          </div>
+
+          <div class="course-card">
+            <div class="course-icon">🤖</div>
+            <h3>AI & Machine Learning</h3>
+            <p>
+              Discover artificial intelligence, machine
+              learning and practical AI projects.
+            </p>
+            <a href="ai.html" class="course-link">
+              View Course →
+            </a>
+          </div>
+
+          <div class="course-card">
+            <div class="course-icon">📊</div>
+            <h3>Data Science</h3>
+            <p>
+              Learn data analysis, visualization and
+              machine learning with real datasets.
+            </p>
+            <a href="datascience.html" class="course-link">
+              View Course →
+            </a>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:35px;">
+          <a href="courses.html" class="btn btn-primary">
+            View All Courses
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section" id="features">
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Everything You Need to Learn</h2>
+          <p>A complete learning experience, not just video lessons.</p>
+        </div>
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+            <h3>📚 Structured Courses</h3>
+            <p>
+              Follow carefully organized lessons from beginner
+              concepts to advanced topics.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>💻 Practice</h3>
+            <p>
+              Apply what you learn through coding exercises
+              and practical projects.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>📝 Quizzes</h3>
+            <p>
+              Test your knowledge after lessons and track
+              your understanding.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>📈 Progress Tracking</h3>
+            <p>
+              Keep track of completed lessons, courses and
+              learning progress.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>🏆 Certificates</h3>
+            <p>
+              Complete courses and earn certificates that
+              recognize your learning journey.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3>🚀 Real Projects</h3>
+            <p>
+              Build projects that turn programming knowledge
+              into practical experience.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section" id="pricing">
+
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Choose Your Learning Plan</h2>
+          <p>Start free and upgrade when you're ready.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <div class="price-card">
+            <h3>Free</h3>
+
+            <div class="price">
+              $0 <span>/ forever</span>
+            </div>
+
+            <p>✓ Selected lessons</p>
+            <p>✓ Beginner courses</p>
+            <p>✓ Basic quizzes</p>
+            <p>✓ Learning progress</p>
+
+            <br>
+
+            <a href="courses.html" class="btn btn-secondary">
+              Start Free
+            </a>
+          </div>
+
+
+          <div class="price-card featured">
+            <h3>Pro</h3>
+
+            <div class="price">
+              $9 <span>/ month</span>
+            </div>
+
+            <p>✓ All courses</p>
+            <p>✓ Full lesson library</p>
+            <p>✓ Coding exercises</p>
+            <p>✓ Projects</p>
+            <p>✓ Certificates</p>
+
+            <br>
+
+            <a href="login.html" class="btn btn-primary">
+              Get Pro
+            </a>
+          </div>
+
+
+          <div class="price-card">
+            <h3>Lifetime</h3>
+
+            <div class="price">
+              $99 <span>/ once</span>
+            </div>
+
+            <p>✓ All current courses</p>
+            <p>✓ Future courses</p>
+            <p>✓ Projects</p>
+            <p>✓ Certificates</p>
+            <p>✓ Lifetime access</p>
+
+            <br>
+
+            <a href="login.html" class="btn btn-secondary">
+              Get Lifetime
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Codigo. Learn. Build. Grow.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
