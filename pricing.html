@@ -1,0 +1,341 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codigo — Pricing</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.pricing-page{
+    padding:65px 20px 90px;
+}
+
+.pricing-container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.pricing-heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 55px;
+}
+
+.pricing-heading h1{
+    color:#fff;
+    font-size:44px;
+    margin-bottom:14px;
+}
+
+.pricing-heading h1 span{
+    color:#34d399;
+}
+
+.pricing-heading p{
+    color:#899792;
+    font-size:17px;
+    line-height:1.7;
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.price-card{
+    position:relative;
+    background:#111816;
+    border:1px solid #26332f;
+    border-radius:22px;
+    padding:32px;
+}
+
+.price-card.featured{
+    border-color:#34d399;
+    box-shadow:0 0 35px rgba(52,211,153,.10);
+    transform:translateY(-8px);
+}
+
+.popular{
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#34d399;
+    color:#07110e;
+    padding:7px 15px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:800;
+}
+
+.price-card h2{
+    color:#fff;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.price-description{
+    color:#7f8d88;
+    min-height:48px;
+    line-height:1.5;
+    font-size:14px;
+}
+
+.price{
+    color:#fff;
+    font-size:42px;
+    font-weight:800;
+    margin:25px 0 8px;
+}
+
+.price span{
+    color:#7f8d88;
+    font-size:14px;
+    font-weight:400;
+}
+
+.price-list{
+    list-style:none;
+    margin:25px 0;
+}
+
+.price-list li{
+    color:#c4d0cc;
+    padding:10px 0;
+    border-bottom:1px solid #202b27;
+    font-size:14px;
+}
+
+.price-list li::before{
+    content:"✓";
+    color:#34d399;
+    font-weight:800;
+    margin-right:10px;
+}
+
+.price-button{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:14px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+    background:#26332f;
+    color:#fff;
+    border:1px solid #34443e;
+}
+
+.price-button:hover{
+    border-color:#34d399;
+    color:#34d399;
+}
+
+.price-card.featured .price-button{
+    background:#34d399;
+    color:#07110e;
+    border-color:#34d399;
+}
+
+.price-card.featured .price-button:hover{
+    background:#6ee7b7;
+}
+
+.pricing-note{
+    text-align:center;
+    margin-top:35px;
+    color:#66756f;
+    font-size:13px;
+}
+
+@media(max-width:900px){
+    .pricing-grid{
+        grid-template-columns:1fr;
+        max-width:550px;
+        margin:auto;
+    }
+
+    .price-card.featured{
+        transform:none;
+    }
+}
+
+@media(max-width:600px){
+    .pricing-heading h1{
+        font-size:34px;
+    }
+
+    .price-card{
+        padding:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            <span>&lt;</span>Codigo<span>/&gt;</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="courses.html">Courses</a>
+            <a href="index.html#features">Features</a>
+            <a href="pricing.html">Pricing</a>
+        </div>
+
+        <a href="login.html" class="nav-button">
+            Get Started
+        </a>
+
+    </div>
+</nav>
+
+
+<main class="pricing-page">
+
+<div class="pricing-container">
+
+    <div class="pricing-heading">
+
+        <h1>Choose Your <span>Learning Plan</span></h1>
+
+        <p>
+            Start learning for free or unlock the full Codigo
+            experience with premium courses, projects and certificates.
+        </p>
+
+    </div>
+
+
+    <div class="pricing-grid">
+
+
+        <!-- FREE -->
+
+        <div class="price-card">
+
+            <h2>Free</h2>
+
+            <div class="price-description">
+                Start coding and explore the Codigo platform.
+            </div>
+
+            <div class="price">
+                $0
+                <span>/ forever</span>
+            </div>
+
+            <ul class="price-list">
+                <li>Intro lessons</li>
+                <li>Selected courses</li>
+                <li>Basic quizzes</li>
+                <li>Learning dashboard</li>
+                <li>Practice examples</li>
+            </ul>
+
+            <a href="courses.html" class="price-button">
+                Start Free
+            </a>
+
+        </div>
+
+
+        <!-- PRO -->
+
+        <div class="price-card featured">
+
+            <div class="popular">
+                MOST POPULAR
+            </div>
+
+            <h2>Pro</h2>
+
+            <div class="price-description">
+                Full access for serious learners who want to grow faster.
+            </div>
+
+            <div class="price">
+                $9.99
+                <span>/ month</span>
+            </div>
+
+            <ul class="price-list">
+                <li>All 10 courses</li>
+                <li>All lessons</li>
+                <li>All quizzes</li>
+                <li>Practice projects</li>
+                <li>Progress tracking</li>
+                <li>Certificates</li>
+                <li>Future AI learning assistant</li>
+            </ul>
+
+            <a href="login.html" class="price-button">
+                Get Pro
+            </a>
+
+        </div>
+
+
+        <!-- LIFETIME -->
+
+        <div class="price-card">
+
+            <h2>Lifetime</h2>
+
+            <div class="price-description">
+                One payment. Lifetime access to the Codigo platform.
+            </div>
+
+            <div class="price">
+                $99
+                <span>/ once</span>
+            </div>
+
+            <ul class="price-list">
+                <li>All Pro features</li>
+                <li>Lifetime access</li>
+                <li>All current courses</li>
+                <li>Future course updates</li>
+                <li>Certificates</li>
+                <li>Practice projects</li>
+                <li>Priority learning features</li>
+            </ul>
+
+            <a href="login.html" class="price-button">
+                Get Lifetime
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="pricing-note">
+        Payment integration can be connected later with a secure payment
+        provider. GitHub Pages itself does not process real payments.
+    </div>
+
+</div>
+
+</main>
+
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Codigo. Learn. Build. Create.</p>
+    </div>
+</footer>
+
+</body>
+</html>
+```
