@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Codigo — Quiz</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.quiz-page{
+    max-width:900px;
+    margin:60px auto;
+    padding:0 24px 80px;
+}
+
+.quiz-header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.quiz-badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    background:#123b30;
+    color:#6ee7b7;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.quiz-header h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.quiz-header p{
+    color:#a7b5b0;
+    font-size:17px;
+}
+
+.progress-container{
+    margin:25px 0;
+}
+
+.progress-text{
+    display:flex;
+    justify-content:space-between;
+    color:#9aa9a4;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    width:100%;
+    height:8px;
+    background:#18211e;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#10b981;
+    transition:.3s;
+}
+
+.question-box{
+    background:#111816;
+    border:1px solid #26332f;
+    border-radius:18px;
+    padding:30px;
+}
+
+.question-number{
+    color:#6ee7b7;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.question-box h2{
+    font-size:25px;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.answers{
+    display:grid;
+    gap:13px;
+}
+
+.answer{
+    width:100%;
+    padding:16px 18px;
+    border-radius:12px;
+    border:1px solid #2b3935;
+    background:#151d1a;
+    color:#d9e5e1;
+    text-align:left;
+    cursor:pointer;
+    font-size:16px;
+    transition:.2s;
+}
+
+.answer:hover{
+    border-color:#10b981;
+    transform:translateY(-1px);
+}
+
+.answer.correct{
+    border-color:#10b981;
+    background:#123b30;
+}
+
+.answer.wrong{
+    border-color:#ef4444;
+    background:#351b1b;
+}
+
+.answer.disabled{
+    pointer-events:none;
+}
+
+.feedback{
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    display:none;
+    line-height:1.6;
+}
+
+.feedback.correct{
+    display:block;
+    background:#123b30;
+    color:#8ff0c5;
+}
+
+.feedback.wrong{
+    display:block;
+    background:#351b1b;
+    color:#ffb4b4;
+}
+
+.quiz-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:25px;
+    gap:15px;
+}
+
+.quiz-btn{
+    padding:13px 22px;
+    border:none;
+    border-radius:10px;
+    background:#10b981;
+    color:#07120e;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.quiz-btn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+}
+
+.back-btn{
+    color:#a7b5b0;
+    text-decoration:none;
+}
+
+.result-box{
+    display:none;
+    text-align:center;
+    background:#111816;
+    border:1px solid #26332f;
+    border-radius:18px;
+    padding:45px 25px;
+}
+
+.result-box h2{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.score{
+    font-size:55px;
+    font-weight:800;
+    color:#6ee7b7;
+    margin:20px 0;
+}
+
+.result-message{
+    color:#a7b5b0;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+.result-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.result-btn{
+    padding:13px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    background:#10b981;
+    color:#07120e;
+    font-weight:700;
+}
+
+.result-btn.secondary{
+    background:#18211e;
+    color:#d9e5e1;
+    border:1px solid #2b3935;
+}
+
+@media(max-width:700px){
+
+    .quiz-header h1{
+        font-size:32px;
+    }
+
+    .question-box{
+        padding:22px;
+    }
+
+    .quiz-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .quiz-btn{
+        width:100%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Codigo<span>.</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+    </div>
+
+</nav>
+
+
+<main class="quiz-page">
+
+
+    <section class="quiz-header">
+
+        <span class="quiz-badge" id="courseBadge">
+            Final Quiz
+        </span>
+
+        <h1 id="quizTitle">
+            Course Quiz
+        </h1>
+
+        <p>
+            Answer the questions and test what you learned.
+        </p>
+
+    </section>
+
+
+    <div id="quizContainer">
+
+        <div class="progress-container">
+
+            <div class="progress-text">
+                <span id="progressText">
+                    Question 1 of 10
+                </span>
+
+                <span id="scoreText">
+                    Score: 0
+                </span>
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <section class="question-box">
+
+            <div
+                class="question-number"
+                id="questionNumber">
+                Question 1
+            </div>
+
+            <h2 id="questionText">
+                Loading question...
+            </h2>
+
+
+            <div
+                class="answers"
+                id="answers">
+            </div>
+
+
+            <div
+                class="feedback"
+                id="feedback">
+            </div>
+
+
+            <div class="quiz-actions">
+
+                <a
+                    href="courses.html"
+                    class="back-btn">
+                    ← All Courses
+                </a>
+
+                <button
+                    class="quiz-btn"
+                    id="nextButton"
+                    disabled>
+                    Next Question →
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <section
+        class="result-box"
+        id="resultBox">
+
+        <h2>Quiz Complete! 🎉</h2>
+
+        <div
+            class="score"
+            id="finalScore">
+            0/10
+        </div>
+
+        <p
+            class="result-message"
+            id="resultMessage">
+        </p>
+
+        <div class="result-buttons">
+
+            <button
+                class="result-btn"
+                onclick="restartQuiz()">
+                Try Again
+            </button>
+
+            <a
+                href="courses.html"
+                class="result-btn secondary">
+                Back to Courses
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="logo">
+        Codigo<span>.</span>
+    </div>
+
+    <p>
+        Learn. Practice. Build.
+    </p>
+
+</footer>
+
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const course =
+params.get("course") || "python";
+
+
+const courseNames = {
+
+    python: "Python",
+
+    cpp: "C++",
+
+    java: "Java",
+
+    web: "Web Development",
+
+    javascript: "JavaScript",
+
+    ai: "AI & Machine Learning",
+
+    datascience: "Data Science",
+
+    sql: "SQL & Databases",
+
+    github: "Git & GitHub",
+
+    algorithms: "Algorithms"
+
+};
+
+
+const quizzes = {
+
+
+python: [
+
+{
+q:"Which function is used to display text in Python?",
+a:["display()","print()","show()","write()"],
+correct:1,
+explanation:"print() is used to display information in Python."
+},
+
+{
+q:"Which symbol is used to create a comment in Python?",
+a:["//","#","<!--","**"],
+correct:1,
+explanation:"Python uses # for single-line comments."
+},
+
+{
+q:"Which data type stores text?",
+a:["int","float","str","bool"],
+correct:2,
+explanation:"str is the Python data type used for text."
+},
+
+{
+q:"Which keyword is used for a condition?",
+a:["if","when","check","condition"],
+correct:0,
+explanation:"Python uses if to create conditional statements."
+},
+
+{
+q:"Which loop is commonly used to iterate through a sequence?",
+a:["repeat","for","loop","each"],
+correct:1,
+explanation:"A for loop is commonly used to iterate through sequences."
+},
+
+{
+q:"Which collection uses square brackets?",
+a:["Dictionary","Tuple","List","Set"],
+correct:2,
+explanation:"Lists are written using square brackets."
+},
+
+{
+q:"Which keyword defines a function?",
+a:["function","def","func","create"],
+correct:1,
+explanation:"Python uses the def keyword to define functions."
+},
+
+{
+q:"Which collection stores key-value pairs?",
+a:["List","Tuple","Dictionary","String"],
+correct:2,
+explanation:"Dictionaries store data using key-value pairs."
+},
+
+{
+q:"What is used to handle errors?",
+a:["try/except","error/catch","check/fix","test/error"],
+correct:0,
+explanation:"Python uses try and except for exception handling."
+},
+
+{
+q:"What is Python commonly used for?",
+a:["Only games","Only websites","AI, data science, automation and more","Only databases"],
+correct:2,
+explanation:"Python is used across many fields including AI, data science, automation and web development."
+}
+
+],
+
+
+javascript: [
+
+{
+q:"Which keyword can create a variable in JavaScript?",
+a:["let","variable","create","varname"],
+correct:0,
+explanation:"let is one of the keywords used to declare variables."
+},
+
+{
+q:"Which command prints information to the console?",
+a:["print()","console.log()","write()","show()"],
+correct:1,
+explanation:"console.log() prints information to the browser console."
+},
+
+{
+q:"Which symbol starts a single-line comment?",
+a:["#","//","<!--","**"],
+correct:1,
+explanation:"JavaScript uses // for single-line comments."
+},
+
+{
+q:"Which statement is used for decisions?",
+a:["if","choose","check","when"],
+correct:0,
+explanation:"JavaScript uses if statements to make decisions."
+},
+
+{
+q:"Which structure stores multiple values?",
+a:["Array","Number","Boolean","Function"],
+correct:0,
+explanation:"Arrays store multiple values in an ordered collection."
+},
+
+{
+q:"Which keyword defines a function?",
+a:["function","def","func","method"],
+correct:0,
+explanation:"JavaScript uses the function keyword to define functions."
+},
+
+{
+q:"What does DOM stand for?",
+a:["Data Object Method","Document Object Model","Digital Object Manager","Document Online Mode"],
+correct:1,
+explanation:"DOM means Document Object Model."
+},
+
+{
+q:"Which method selects an HTML element?",
+a:["document.querySelector()","html.find()","select.html()","get.element()"],
+correct:0,
+explanation:"document.querySelector() can select an HTML element."
+},
+
+{
+q:"Which method adds an event listener?",
+a:["addEventListener()","addEvent()","listen()","eventAdd()"],
+correct:0,
+explanation:"addEventListener() is used to respond to events."
+},
+
+{
+q:"JavaScript is widely used for...",
+a:["Only databases","Interactive websites and web applications","Only operating systems","Only spreadsheets"],
+correct:1,
+explanation:"JavaScript is widely used to create interactive websites and web applications."
+}
+
+],
+
+
+default: [
+
+{
+q:"What is the main purpose of programming?",
+a:["To solve problems using instructions","To only write text","To only create images","To avoid computers"],
+correct:0,
+explanation:"Programming allows us to create instructions that solve problems and perform tasks."
+},
+
+{
+q:"What is an algorithm?",
+a:["A programming language","A step-by-step method for solving a problem","A computer screen","A database"],
+correct:1,
+explanation:"An algorithm is a sequence of steps used to solve a problem."
+},
+
+{
+q:"What does a variable store?",
+a:["Information or a value","Only images","Only programs","A keyboard"],
+correct:0,
+explanation:"Variables are used to store information."
+},
+
+{
+q:"What is a function?",
+a:["A reusable block of code","A computer","A database","An image"],
+correct:0,
+explanation:"Functions are reusable blocks of code designed to perform a task."
+},
+
+{
+q:"Why do programmers test code?",
+a:["To find and fix problems","To make code longer","To delete projects","To stop programs"],
+correct:0,
+explanation:"Testing helps programmers find errors and verify that code works correctly."
+},
+
+{
+q:"What is debugging?",
+a:["Finding and fixing errors","Creating images","Deleting files","Installing a browser"],
+correct:0,
+explanation:"Debugging is the process of finding and fixing errors in code."
+},
+
+{
+q:"What is a data structure?",
+a:["A way to organize and store data","A programming language","A website","A computer"],
+correct:0,
+explanation:"Data structures organize and store data so programs can work with it efficiently."
+},
+
+{
+q:"Why is Git useful?",
+a:["It tracks changes in projects","It creates computers","It replaces programming","It only edits images"],
+correct:0,
+explanation:"Git is a version control system that tracks changes in projects."
+},
+
+{
+q:"What is GitHub?",
+a:["A platform for hosting and collaborating on code","A programming language","A database engine","A text editor"],
+correct:0,
+explanation:"GitHub is a platform used to host code and collaborate on software projects."
+},
+
+{
+q:"What is a project?",
+a:["A practical application built using multiple concepts","Only one line of code","A keyboard shortcut","A browser tab"],
+correct:0,
+explanation:"Projects combine multiple programming concepts into a practical application."
+}
+
+]
+
+};
+
+
+let questions =
+quizzes[course] || quizzes.default;
+
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let answered = false;
+
+
+const courseName =
+courseNames[course] || "Programming";
+
+
+document.title =
+"Codigo — " + courseName + " Quiz";
+
+
+document.getElementById("courseBadge").textContent =
+courseName + " • Final Quiz";
+
+
+document.getElementById("quizTitle").textContent =
+courseName + " Final Quiz";
+
+
+const questionText =
+document.getElementById("questionText");
+
+const answers =
+document.getElementById("answers");
+
+const feedback =
+document.getElementById("feedback");
+
+const nextButton =
+document.getElementById("nextButton");
+
+const progressFill =
+document.getElementById("progressFill");
+
+const progressText =
+document.getElementById("progressText");
+
+const scoreText =
+document.getElementById("scoreText");
+
+
+function loadQuestion(){
+
+    answered = false;
+
+    nextButton.disabled = true;
+
+    feedback.className = "feedback";
+
+    feedback.textContent = "";
+
+    const question =
+    questions[currentQuestion];
+
+
+    document.getElementById("questionNumber").textContent =
+    "Question " + (currentQuestion + 1);
+
+
+    questionText.textContent =
+    question.q;
+
+
+    progressText.textContent =
+    "Question " +
+    (currentQuestion + 1) +
+    " of " +
+    questions.length;
+
+
+    scoreText.textContent =
+    "Score: " + score;
+
+
+    progressFill.style.width =
+    ((currentQuestion) / questions.length * 100) + "%";
+
+
+    answers.innerHTML = "";
+
+
+    question.a.forEach((answer,index)=>{
+
+        const button =
+        document.createElement("button");
+
+        button.className =
+        "answer";
+
+        button.textContent =
+        answer;
+
+        button.onclick = () =>
+        selectAnswer(index,button);
+
+        answers.appendChild(button);
+
+    });
+
+}
+
+
+function selectAnswer(index,button){
+
+    if(answered) return;
+
+    answered = true;
+
+    const question =
+    questions[currentQuestion];
+
+
+    const allAnswers =
+    document.querySelectorAll(".answer");
+
+
+    allAnswers.forEach(
+        item => item.classList.add("disabled")
+    );
+
+
+    if(index === question.correct){
+
+        button.classList.add("correct");
+
+        score++;
+
+        feedback.className =
+        "feedback correct";
+
+        feedback.innerHTML =
+        "<strong>Correct! ✓</strong><br>" +
+        question.explanation;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        allAnswers[question.correct]
+        .classList.add("correct");
+
+        feedback.className =
+        "feedback wrong";
+
+        feedback.innerHTML =
+        "<strong>Not quite.</strong><br>" +
+        "Correct answer: " +
+        question.a[question.correct] +
+        "<br>" +
+        question.explanation;
+
+    }
+
+
+    scoreText.textContent =
+    "Score: " + score;
+
+
+    nextButton.disabled = false;
+
+}
+
+
+nextButton.onclick = function(){
+
+    if(!answered) return;
+
+    currentQuestion++;
+
+
+    if(currentQuestion < questions.length){
+
+        loadQuestion();
+
+    }else{
+
+        showResult();
+
+    }
+
+};
+
+
+function showResult(){
+
+    document.getElementById("quizContainer")
+    .style.display = "none";
+
+
+    const resultBox =
+    document.getElementById("resultBox");
+
+    resultBox.style.display = "block";
+
+
+    document.getElementById("finalScore")
+    .textContent =
+    score + "/" + questions.length;
+
+
+    const percentage =
+    Math.round(
+        score / questions.length * 100
+    );
+
+
+    let message;
+
+
+    if(percentage >= 90){
+
+        message =
+        "Excellent work! You have a strong understanding of the course.";
+
+    }else if(percentage >= 70){
+
+        message =
+        "Great job! Review a few topics and keep practicing.";
+
+    }else if(percentage >= 50){
+
+        message =
+        "Good start! Review the lessons and try the quiz again.";
+
+    }else{
+
+        message =
+        "Keep learning and practicing. You can improve your score!";
+
+    }
+
+
+    document.getElementById("resultMessage")
+    .textContent =
+    message +
+    " Your score was " +
+    percentage +
+    "%.";
+
+
+    progressFill.style.width = "100%";
+
+
+    localStorage.setItem(
+        "codigo_" + course + "_quiz_score",
+        score
+    );
+
+}
+
+
+function restartQuiz(){
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    document.getElementById("quizContainer")
+    .style.display = "block";
+
+    document.getElementById("resultBox")
+    .style.display = "none";
+
+    loadQuestion();
+
+}
+
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
