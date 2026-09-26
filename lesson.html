@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codigo — Lesson</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.lesson-page{
+    max-width:1000px;
+    margin:60px auto;
+    padding:0 24px 80px;
+}
+
+.lesson-top{
+    margin-bottom:35px;
+}
+
+.lesson-badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:20px;
+    background:#123b30;
+    color:#6ee7b7;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.lesson-page h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.lesson-page .intro{
+    color:#a7b5b0;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.lesson-box{
+    background:#111816;
+    border:1px solid #26332f;
+    border-radius:18px;
+    padding:30px;
+    margin-top:25px;
+}
+
+.lesson-box h2{
+    margin-bottom:15px;
+}
+
+.lesson-box p{
+    color:#b7c3bf;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.lesson-box ul{
+    color:#b7c3bf;
+    line-height:2;
+    padding-left:22px;
+}
+
+.code-box{
+    background:#080b0a;
+    border:1px solid #26332f;
+    border-radius:14px;
+    padding:20px;
+    margin-top:20px;
+    overflow-x:auto;
+}
+
+.code-box pre{
+    color:#8ff0c5;
+    font-family:monospace;
+    line-height:1.7;
+}
+
+.lesson-actions{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-top:35px;
+}
+
+.lesson-btn{
+    display:inline-block;
+    padding:13px 22px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    border:1px solid #31413c;
+    color:#d9e5e1;
+    background:#151d1a;
+}
+
+.lesson-btn.primary{
+    background:#10b981;
+    color:#07120e;
+    border:none;
+}
+
+@media(max-width:700px){
+    .lesson-page h1{
+        font-size:32px;
+    }
+
+    .lesson-actions{
+        flex-direction:column;
+    }
+
+    .lesson-btn{
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">Codigo<span>.</span></div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+    </div>
+</nav>
+
+
+<main class="lesson-page">
+
+    <section class="lesson-top">
+
+        <span class="lesson-badge" id="courseBadge">
+            Course Lesson
+        </span>
+
+        <h1 id="lessonTitle">
+            Loading lesson...
+        </h1>
+
+        <p class="intro" id="lessonIntro">
+            Loading lesson content...
+        </p>
+
+    </section>
+
+
+    <section class="lesson-box">
+
+        <h2>What You Will Learn</h2>
+
+        <ul id="lessonPoints">
+        </ul>
+
+    </section>
+
+
+    <section class="lesson-box">
+
+        <h2>Lesson Explanation</h2>
+
+        <p id="lessonExplanation">
+            Loading...
+        </p>
+
+    </section>
+
+
+    <section class="lesson-box">
+
+        <h2>Example</h2>
+
+        <div class="code-box">
+            <pre id="lessonCode"></pre>
+        </div>
+
+    </section>
+
+
+    <section class="lesson-box">
+
+        <h2>Practice</h2>
+
+        <p id="lessonPractice">
+            Try to create your own example using what you learned.
+        </p>
+
+    </section>
+
+
+    <div class="lesson-actions">
+
+        <a href="courses.html" class="lesson-btn">
+            ← All Courses
+        </a>
+
+        <a href="#" id="nextLesson" class="lesson-btn primary">
+            Next Lesson →
+        </a>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+    <div class="logo">Codigo<span>.</span></div>
+    <p>Learn. Practice. Build.</p>
+</footer>
+
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const course = params.get("course") || "python";
+const lesson = parseInt(params.get("lesson")) || 1;
+
+
+const courseNames = {
+    python: "Python",
+    cpp: "C++",
+    java: "Java",
+    web: "Web Development",
+    javascript: "JavaScript",
+    ai: "AI & Machine Learning",
+    datascience: "Data Science",
+    sql: "SQL & Databases",
+    github: "Git & GitHub",
+    algorithms: "Algorithms"
+};
+
+
+const lessonData = {
+
+python: [
+{
+title:"Introduction to Python",
+intro:"Learn what Python is and why it is one of the most popular programming languages.",
+points:["Understand what Python is","Learn where Python is used","Write your first Python program"],
+explanation:"Python is a high-level programming language known for its simple and readable syntax. It is used in web development, automation, data science, artificial intelligence, and many other fields.",
+code:`print("Hello, World!")`,
+practice:"Write a Python program that prints your name."
+},
+{
+title:"Variables & Data Types",
+intro:"Learn how to store information in variables.",
+points:["Create variables","Understand strings and numbers","Use basic data types"],
+explanation:"Variables allow programs to store information. Python supports different data types such as strings, integers, floats, and booleans.",
+code:`name = "Liana"
+age = 16
+
+print(name)
+print(age)`,
+practice:"Create variables for your name, age, and favorite programming language."
+},
+{
+title:"Operators",
+intro:"Learn how to perform calculations and comparisons.",
+points:["Use arithmetic operators","Compare values","Use logical operators"],
+explanation:"Operators allow us to perform calculations and make decisions in our programs.",
+code:`a = 10
+b = 5
+
+print(a + b)
+print(a > b)`,
+practice:"Create two numbers and calculate their sum, difference, and product."
+},
+{
+title:"Conditions",
+intro:"Learn how programs make decisions.",
+points:["Use if statements","Use else","Use elif"],
+explanation:"Conditional statements allow a program to execute different code depending on whether a condition is true or false.",
+code:`age = 16
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Under 18")`,
+practice:"Write a program that checks whether a number is positive or negative."
+},
+{
+title:"Loops",
+intro:"Learn how to repeat code efficiently.",
+points:["Understand for loops","Understand while loops","Repeat actions"],
+explanation:"Loops allow you to execute the same block of code multiple times.",
+code:`for i in range(5):
+    print(i)`,
+practice:"Create a loop that prints the numbers from 1 to 10."
+},
+{
+title:"Lists",
+intro:"Learn how to store multiple values in one variable.",
+points:["Create lists","Access elements","Add and remove items"],
+explanation:"Lists are ordered collections that can contain multiple values.",
+code:`fruits = ["apple", "banana", "orange"]
+
+print(fruits[0])
+fruits.append("mango")`,
+practice:"Create a list containing five programming languages."
+},
+{
+title:"Functions",
+intro:"Learn how to create reusable blocks of code.",
+points:["Define functions","Use parameters","Return values"],
+explanation:"Functions help organize programs into reusable pieces of code.",
+code:`def greet(name):
+    return "Hello " + name
+
+print(greet("Liana"))`,
+practice:"Create a function that receives two numbers and returns their sum."
+},
+{
+title:"Dictionaries",
+intro:"Learn how to store data using key-value pairs.",
+points:["Create dictionaries","Access values","Add new data"],
+explanation:"Dictionaries store information using keys and values.",
+code:`student = {
+    "name": "Liana",
+    "age": 16
+}
+
+print(student["name"])`,
+practice:"Create a dictionary describing a student."
+},
+{
+title:"Files & Exceptions",
+intro:"Learn how to work with files and handle errors.",
+points:["Read files","Write files","Handle exceptions"],
+explanation:"Python can read and write files. Exception handling helps programs deal with unexpected errors.",
+code:`try:
+    number = int(input("Number: "))
+    print(number)
+except ValueError:
+    print("Invalid number")`,
+practice:"Write a program that safely converts user input into a number."
+},
+{
+title:"Python Project",
+intro:"Use everything you learned to build a small Python project.",
+points:["Plan a project","Combine Python concepts","Create a working program"],
+explanation:"A project is the best way to combine programming concepts and practice solving a real problem.",
+code:`tasks = []
+
+tasks.append("Learn Python")
+tasks.append("Build a project")
+
+for task in tasks:
+    print(task)`,
+practice:"Create a small to-do list program."
+}
+],
+
+
+javascript: [
+{
+title:"Introduction to JavaScript",
+intro:"Learn what JavaScript is and how it makes websites interactive.",
+points:["Understand JavaScript","Run JavaScript code","Use console.log"],
+explanation:"JavaScript is a programming language widely used to create interactive websites and web applications.",
+code:`console.log("Hello, World!");`,
+practice:"Print your name using console.log."
+},
+{
+title:"Variables & Data Types",
+intro:"Learn how JavaScript stores different types of information.",
+points:["Use let and const","Understand strings","Work with numbers"],
+explanation:"JavaScript variables can store values such as strings, numbers, and booleans.",
+code:`let name = "Liana";
+const age = 16;
+
+console.log(name);
+console.log(age);`,
+practice:"Create variables for your name and favorite language."
+},
+{
+title:"Operators",
+intro:"Learn how JavaScript performs calculations and comparisons.",
+points:["Arithmetic operators","Comparison operators","Logical operators"],
+explanation:"Operators are used to calculate values and compare information.",
+code:`let a = 10;
+let b = 5;
+
+console.log(a + b);
+console.log(a > b);`,
+practice:"Calculate the sum and difference of two numbers."
+},
+{
+title:"Conditions",
+intro:"Make decisions using if and else.",
+points:["Use if","Use else","Use else if"],
+explanation:"Conditions allow JavaScript programs to choose what code should run.",
+code:`let age = 16;
+
+if (age >= 18) {
+    console.log("Adult");
+} else {
+    console.log("Under 18");
+}`,
+practice:"Check whether a number is positive or negative."
+},
+{
+title:"Loops",
+intro:"Repeat code using JavaScript loops.",
+points:["for loops","while loops","Loop control"],
+explanation:"Loops allow JavaScript to repeat an operation multiple times.",
+code:`for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}`,
+practice:"Print the numbers from 1 to 10."
+},
+{
+title:"Functions",
+intro:"Create reusable JavaScript functions.",
+points:["Define functions","Use parameters","Return values"],
+explanation:"Functions make programs easier to organize and reuse.",
+code:`function greet(name) {
+    return "Hello " + name;
+}
+
+console.log(greet("Liana"));`,
+practice:"Create a function that adds two numbers."
+},
+{
+title:"Arrays & Objects",
+intro:"Store and organize collections of information.",
+points:["Create arrays","Access elements","Create objects"],
+explanation:"Arrays store lists of values while objects store information using properties.",
+code:`const languages = ["Python", "JavaScript", "C++"];
+
+console.log(languages[0]);`,
+practice:"Create an array containing five programming languages."
+},
+{
+title:"DOM Manipulation",
+intro:"Use JavaScript to control HTML elements.",
+points:["Find HTML elements","Change text","Change styles"],
+explanation:"The DOM represents the structure of a webpage and JavaScript can interact with it.",
+code:`document.querySelector("h1").textContent =
+"Hello, Codigo!";`,
+practice:"Change the text of an HTML heading using JavaScript."
+},
+{
+title:"Events & Interaction",
+intro:"Make websites respond to user actions.",
+points:["Understand events","Handle clicks","Create interactions"],
+explanation:"Events allow JavaScript to react when users click, type, move, or interact with a webpage.",
+code:`button.addEventListener("click", () => {
+    alert("Hello!");
+});`,
+practice:"Create a button that displays a message when clicked."
+},
+{
+title:"JavaScript Project",
+intro:"Build a complete interactive project.",
+points:["Combine JavaScript concepts","Use the DOM","Create interactions"],
+explanation:"In this project you will combine variables, functions, DOM manipulation, and events.",
+code:`let count = 0;
+
+function increase() {
+    count++;
+    console.log(count);
+}`,
+practice:"Build a simple counter application."
+}
+]
+
+};
+
+
+const defaultLessons = [
+
+{
+title:"Course Introduction",
+intro:"Learn the fundamentals of this course.",
+points:["Understand the main concepts","Learn important terminology","Prepare for practical work"],
+explanation:"This lesson introduces the main ideas and concepts that you will use throughout the course.",
+code:`// Start learning!
+console.log("Codigo");`,
+practice:"Write a small example related to this course."
+},
+
+{
+title:"Core Concepts",
+intro:"Learn the most important concepts of the course.",
+points:["Understand the basics","Practice core concepts","Write simple examples"],
+explanation:"Understanding the fundamentals gives you a strong foundation for more advanced programming.",
+code:`// Practice your new skills`,
+practice:"Create your own example."
+},
+
+{
+title:"Working With Data",
+intro:"Learn how to work with information.",
+points:["Store information","Process data","Display results"],
+explanation:"Programs often need to store and process information efficiently.",
+code:`const data = [1, 2, 3, 4, 5];
+console.log(data);`,
+practice:"Create a collection of data and display it."
+},
+
+{
+title:"Problem Solving",
+intro:"Learn how to break problems into smaller steps.",
+points:["Analyze problems","Plan solutions","Implement solutions"],
+explanation:"Good programmers solve complex problems by breaking them into smaller and manageable steps.",
+code:`// Step 1: Understand
+// Step 2: Plan
+// Step 3: Code`,
+practice:"Choose a simple problem and write down three steps to solve it."
+},
+
+{
+title:"Practical Techniques",
+intro:"Apply the concepts you have learned.",
+points:["Write practical code","Test your solution","Improve your code"],
+explanation:"Practice helps transform theoretical knowledge into real programming skills.",
+code:`function solve() {
+    console.log("Practice!");
+}
+
+solve();`,
+practice:"Write and test your own function."
+},
+
+{
+title:"Advanced Concepts",
+intro:"Explore more advanced ideas.",
+points:["Understand advanced concepts","Combine techniques","Improve solutions"],
+explanation:"Once you understand the basics, you can combine multiple concepts to create more powerful programs.",
+code:`// Combine multiple concepts
+console.log("Advanced practice");`,
+practice:"Combine two concepts from previous lessons."
+},
+
+{
+title:"Working With Projects",
+intro:"Learn how programming concepts come together in projects.",
+points:["Plan projects","Organize code","Test features"],
+explanation:"Projects allow you to practice multiple skills at the same time.",
+code:`const project = {
+    name: "My Project",
+    status: "In Progress"
+};
+
+console.log(project);`,
+practice:"Plan a small project you would like to build."
+},
+
+{
+title:"Debugging & Testing",
+intro:"Learn how to find and fix programming errors.",
+points:["Identify errors","Test code","Fix problems"],
+explanation:"Debugging is an essential programming skill. Developers test their programs and fix unexpected behavior.",
+code:`try {
+    console.log("Testing...");
+} catch (error) {
+    console.log(error);
+}`,
+practice:"Take an existing example and intentionally change it, then fix the error."
+},
+
+{
+title:"Real-World Applications",
+intro:"See how the course concepts are used in real projects.",
+points:["Connect concepts to real applications","Understand practical use","Think like a developer"],
+explanation:"Programming concepts become much more useful when you understand how they are applied in real-world software.",
+code:`function application() {
+    return "Real-world project";
+}
+
+console.log(application());`,
+practice:"Think of one real application where you could use what you learned."
+},
+
+{
+title:"Final Project",
+intro:"Combine everything you learned into one project.",
+points:["Plan your project","Build the main features","Test your solution"],
+explanation:"The final project gives you the opportunity to demonstrate your knowledge and build something of your own.",
+code:`// Your final project starts here
+
+console.log("Build something amazing!");`,
+practice:"Create your own small project using the concepts from this course."
+}
+
+];
+
+
+const lessons = lessonData[course] || defaultLessons;
+
+const current = lessons[Math.min(lesson - 1, lessons.length - 1)];
+
+const courseName = courseNames[course] || "Programming";
+
+
+document.title = "Codigo — " + courseName + " Lesson " + lesson;
+
+
+document.getElementById("courseBadge").textContent =
+courseName + " • Lesson " + String(lesson).padStart(2, "0");
+
+
+document.getElementById("lessonTitle").textContent =
+current.title;
+
+
+document.getElementById("lessonIntro").textContent =
+current.intro;
+
+
+document.getElementById("lessonExplanation").textContent =
+current.explanation;
+
+
+document.getElementById("lessonPractice").textContent =
+current.practice;
+
+
+document.getElementById("lessonCode").textContent =
+current.code;
+
+
+const pointsElement =
+document.getElementById("lessonPoints");
+
+current.points.forEach(point => {
+
+    const li = document.createElement("li");
+
+    li.textContent = point;
+
+    pointsElement.appendChild(li);
+
+});
+
+
+const nextButton =
+document.getElementById("nextLesson");
+
+
+if (lesson < lessons.length) {
+
+    nextButton.href =
+    "lesson.html?course=" +
+    course +
+    "&lesson=" +
+    (lesson + 1);
+
+} else {
+
+    nextButton.href =
+    "quiz.html?course=" +
+    course;
+
+    nextButton.textContent =
+    "Final Quiz →";
+
+}
+
+</script>
+
+</body>
+</html>
